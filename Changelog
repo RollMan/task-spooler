@@ -11,6 +11,8 @@ Doubtful tasks:
 Future:
  - Use a better system than mkstemp() for finding output files, so we can add
    .gz to the gzipped outputs.
+v1.0.3:
+ - Fix crash using -E, buffer overrun
 v1.0.2:
  - Fix race at server start
 v1.0.1:
