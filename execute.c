@@ -149,7 +149,6 @@ static void run_gzip(int fd_out, int fd_in)
 static void run_child(int fd_send_filename)
 {
     char outfname[] = "/ts-out.XXXXXX";
-    char errfname[sizeof outfname + 2]; /* .e */
     int namesize;
     int outfd;
     int err;
@@ -159,14 +158,16 @@ static void run_child(int fd_send_filename)
     {
         /* Prepare path */
         const char *tmpdir = getenv("TMPDIR");
-        int lname;
-        char *outfname_full;
+        int lname, errlname;
+        char *outfname_full, *errfname_full;
 
         if (tmpdir == NULL)
             tmpdir = "/tmp";
         lname = strlen(tmpdir) + strlen(outfname) + 1 /* \0 */;
 
         outfname_full = (char *)malloc(lname);
+        errlname = lname + 2 /* .e */;
+        errfname_full = (char *)malloc(errlname);
         strcpy(outfname_full, tmpdir);
         strcat(outfname_full, outfname);
 
@@ -190,9 +191,9 @@ static void run_child(int fd_send_filename)
             if (command_line.stderr_apart)
             {
                 int errfd;
-                strncpy(errfname, outfname_full, sizeof errfname);
-                strcat(errfname, ".e");
-                errfd = open(errfname, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+                strncpy(errfname_full, outfname_full, errlname);
+                strcat(errfname_full, ".e");
+                errfd = open(errfname_full, O_CREAT | O_WRONLY | O_TRUNC, 0600);
                 assert(err == 0);
                 err = dup2(errfd, 2);
                 assert(err == 0);
@@ -220,9 +221,9 @@ static void run_child(int fd_send_filename)
             if (command_line.stderr_apart)
             {
                 int errfd;
-                strncpy(errfname, outfname_full, sizeof errfname);
-                strcat(errfname, ".e");
-                errfd = open(errfname, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+                strncpy(errfname_full, outfname_full, errlname);
+                strcat(errfname_full, ".e");
+                errfd = open(errfname_full, O_CREAT | O_WRONLY | O_TRUNC, 0600);
                 dup2(errfd, 2);
                 close(errfd);
             }
