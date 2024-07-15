@@ -10,15 +10,15 @@ Files-Excluded:
  .hg*
 
 Files: *
-Copyright: 2007-2015 Lluís Batlle i Rossel <viric@viric.name>
+Copyright: 2007-2024 Lluís Batlle i Rossel <viric@viric.name>
 License: GPL-2
 
 Files: ts.1
-Copyright: 2007-2015 Lluís Batlle i Rossel <viric@viric.name>
+Copyright: 2007-2024 Lluís Batlle i Rossel <viric@viric.name>
 License: LDP-GPL-1
 
 Files: debian/*
-Copyright: 2008-2016 Alexander Inyukhin <shurick@sectorb.msk.ru>
+Copyright: 2008-2024 Alexander Inyukhin <shurick@sectorb.msk.ru>
 License: GPL-2+
 
 License: GPL-2
