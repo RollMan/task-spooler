@@ -1,3 +1,17 @@
+task-spooler (1.0.3+dfsg1-1) unstable; urgency=medium
+
+  * New upstream version 1.0.3+dfsg1
+  * Refresh patch
+  * Use canonical URL in Vcs-Git.
+  * Bump Standards-Version to 4.7.0 (no changes)
+  * Update copyright years
+  * Do not set repack count
+  * Remove obsolete field Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright).
+  * Replace deprecated contact metadata field with bug-submit
+
+ -- Alexander Inyukhin <shurick@sectorb.msk.ru>  Tue, 16 Jul 2024 01:43:52 +0300
+
 task-spooler (1.0.1+dfsg1-1) unstable; urgency=medium
 
   * Change http to https in urls
