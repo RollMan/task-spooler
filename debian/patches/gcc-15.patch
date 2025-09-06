@@ -1,0 +1,33 @@
+Index: task-spooler/main.c
+===================================================================
+--- task-spooler.orig/main.c
++++ task-spooler/main.c
+@@ -423,7 +423,7 @@ int main(int argc, char **argv)
+     switch(command_line.request)
+     {
+     case c_SHOW_VERSION:
+-        print_version(argv[0]);
++        print_version();
+         break;
+     case c_SHOW_HELP:
+         print_help(argv[0]);
+Index: task-spooler/main.h
+===================================================================
+--- task-spooler.orig/main.h
++++ task-spooler/main.h
+@@ -258,13 +258,13 @@ void dump_conns_struct(FILE *out);
+ 
+ /* server_start.c */
+ int try_connect(int s);
+-void wait_server_up();
++void wait_server_up(int fd);
+ int ensure_server_up();
+ void notify_parent(int fd);
+ void create_socket_path(char **path);
+ 
+ /* execute.c */
+-int run_job();
++int run_job(struct Result *res);
+ 
+ /* client_run.c */
+ void c_run_tail(const char *filename);
