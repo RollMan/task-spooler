@@ -1,3 +1,6 @@
+Subject: Fix for GCC-15 (closes: #1097971)
+Forwarded: not-needed
+Author: Alexander Inyukhin <shurick@sectiorb.msk.ru>
 Index: task-spooler/main.c
 ===================================================================
 --- task-spooler.orig/main.c
