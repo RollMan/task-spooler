@@ -333,6 +333,8 @@ int s_newjob(int s, struct msg *m)
     p->notify_errorlevel_to_size = 0;
     p->do_depend = m->u.newjob.do_depend;
     p->depend_on = -1; /* By default. May be overriden in the next conditions */
+    // TODO: allocate memory.
+    strcpy(p->working_directory, m->u.newjob.working_directory);
     if (m->u.newjob.do_depend == 1)
     {
         /* Depend on the last queued job. */
