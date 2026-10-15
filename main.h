@@ -128,6 +128,7 @@ struct msg
             int depend_on; /* -1 means depend on previous */
             int wait_enqueuing;
             int num_slots;
+            char *working_directory;
         } newjob;
         struct {
             int ofilename_size;
@@ -185,6 +186,7 @@ struct Job
     char *label;
     struct Procinfo info;
     int num_slots;
+    char *working_directory;
 };
 
 enum ExitCodes
